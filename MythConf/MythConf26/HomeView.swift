@@ -12,7 +12,7 @@ struct HomeView: View {
         TabView {
             Tab("Programme", systemImage: "calendar") {
                 ProgrammeView()
-            }
+			}
             Tab("Speakers", systemImage: "person.2") {
                 SpeakersView()
             }

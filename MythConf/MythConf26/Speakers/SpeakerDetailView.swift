@@ -15,7 +15,7 @@ struct SpeakerDetailView: View {
         ScrollView {
             VStack(alignment: .leading) {
                 // Header
-                HStack(alignment: .top) {
+				HStack(alignment: .center, spacing: 16) {
                     SpeakerPhotoView(speaker: speaker, size: 80)
 
                     VStack(alignment: .leading) {
@@ -45,6 +45,8 @@ struct SpeakerDetailView: View {
                 if !speakerTalks.isEmpty {
                     Text("Sessions")
                         .font(.headline)
+						.accessibilityAddTraits(.isHeader)
+						.accessibilityHeading(.h2)
 
                     ForEach(speakerTalks, id: \.talkID) { item in
                         NavigationLink(value: TalkReference(talkID: item.talkID, session: item.session)) {

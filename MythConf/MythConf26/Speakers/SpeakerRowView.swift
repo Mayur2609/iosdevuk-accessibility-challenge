@@ -12,20 +12,12 @@ struct SpeakerRowView: View {
 
     private var speaker: Speaker { viewModel.speakerFrom(speakerID: speakerID) }
 
-    var body: some View {
-        HStack(alignment: .top) {
-            SpeakerPhotoView(speaker: speaker, size: 56)
+	var body: some View {
+		HStack(alignment: .center, spacing: 12) {
+			SpeakerPhotoView(speaker: speaker, size: 56)
 
-            VStack(alignment: .leading) {
-                Text(speaker.name)
-                    .bold()
-                if !speaker.speakerInfo.isEmpty {
-                    Text(speaker.speakerInfo)
-                        .font(.subheadline)
-                        .foregroundStyle(.secondary)
-                        .lineLimit(2)
-                }
-            }
-        }
-    }
+			Text(speaker.name)
+				.bold()
+		}
+	}
 }

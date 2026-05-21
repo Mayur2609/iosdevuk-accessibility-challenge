@@ -21,6 +21,7 @@ struct FavouriteButtonView: View {
             Image(systemName: viewModel.isFavourite(talk: talk) ? "star.fill" : "star")
                 .foregroundStyle(viewModel.isFavourite(talk: talk) ? .yellow : .secondary)
         }
-        .accessibilityLabel(viewModel.isFavourite(talk: talk) ? "Remove from favourites" : "Add to favourites")
+		.accessibilityLabel(viewModel.isFavourite(talk: talk) ? "Remove from favourites" : "Add to favourites")
+		.accessibilityHint(viewModel.isFavourite(talk: talk) ? "Double tap to remove from favourites (My schedule)" : "Double tap to add to favourites (My schedule)")
     }
 }

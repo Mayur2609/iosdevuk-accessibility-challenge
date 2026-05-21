@@ -15,10 +15,12 @@ struct TalkSummaryView: View {
         VStack(alignment: .leading) {
             Text(viewModel.talkTitleFrom(talkID: talkID))
                 .bold()
-            HStack {
-                Label(session.timeRange, systemImage: "clock")
-                Label(viewModel.locationNameFrom(talkID: talkID), systemImage: "mappin")
-            }
+			HStack {
+				Label(session.timeRange, systemImage: "clock")
+					.accessibilityLabel("Time: \(session.timeRange)")
+				Label(viewModel.locationNameFrom(talkID: talkID), systemImage: "mappin")
+					.accessibilityLabel("Location: \(viewModel.locationNameFrom(talkID: talkID))")
+			}
             .font(.caption)
             .foregroundStyle(.secondary)
         }

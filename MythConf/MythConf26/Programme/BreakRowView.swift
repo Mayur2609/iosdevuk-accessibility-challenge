@@ -11,24 +11,24 @@ struct BreakRowView: View {
     let session: Session
 
     var body: some View {
-        HStack {
-            TimeColumnView(startTime: session.startTimeText, endTime: session.endTimeText)
+		HStack(spacing: 16) {
+			TimeColumnView(startTime: session.startTimeText, endTime: session.endTimeText)
 
-            VStack(alignment: .leading) {
-                Text(session.sessionType.displayName)
-                    .italic()
-                    .foregroundStyle(.primary)
-                if let talkID = session.contentIDs.first {
-                    Text(viewModel.locationNameFrom(talkID: talkID))
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                }
-            }
+			VStack(alignment: .leading) {
+				Text(session.sessionType.displayName)
+					.italic()
+					.foregroundStyle(.primary)
+					.accessibilityAddTraits(.isHeader)
+				if let talkID = session.contentIDs.first {
+					Text(viewModel.locationNameFrom(talkID: talkID))
+						.font(.caption)
+						.foregroundStyle(.secondary)
+				}
+			}
 
-            Spacer()
-        }
-        .padding()
-        .frame(maxWidth: .infinity)
-        .background(session.sessionType.color.opacity(0.12))
-    }
+			Spacer()
+		}
+		.padding()
+		.frame(maxWidth: .infinity)
+		.background(session.sessionType.color.opacity(0.12))    }
 }
